@@ -1,0 +1,129 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y</title>
+
+<style>
+body, html {
+  background-color: #111;
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.h1 {
+  margin: auto;
+  width: 40%;
+  display: flex;
+}
+</style>
+</head>
+
+<body>
+   <div class="bgimg">
+  <div class="topleft">
+    <p id="nama"></p>
+  </div>
+  <div class="middle">
+    <h1>UTBK BENTAR LAGI</h1>
+    <hr>
+<p id="demo"></p>
+  </div>
+  <div class="bottomleft">
+       <p style="color: #eaeaea; font-family: monospace;" >Udah Siap ga nih?</p>
+
+    <button id="btn-mau" onclick="alert('Goodluck yahh')">Udah</button>
+
+    <button id="btn-gmau" onclick="gamau(this)" style="position: absolute;">Belum</button>
+    
+  </div>
+</div>
+<!-- Display the countdown timer in an element -->
+    
+    <script>
+    
+     x = prompt('hai nama kamu siapa?')
+
+    document.getElementById("nama").innerHTML = "haii " + x;
+
+    
+    function myFunction(x) {
+        return x;
+    }
+    
+    function gamau(id){
+
+        var mau = document.getElementById('btn-mau');
+
+        var i = Math.floor(Math.random()*300)+1;
+        var j = Math.floor(Math.random()*100)+mau.offsetTop;
+        id.style.left = i + 'px';
+        id.style.top = j + 'px';
+    }
+    
+    
+// Set the date we're counting down to
+var countDownDate = new Date("May 8, 2023 06:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+        
+    </script>
+</body>
+
+</html>
